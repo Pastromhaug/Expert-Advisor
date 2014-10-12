@@ -9,8 +9,8 @@ Project Overview
 Most expert advisors out there have a very narrow focus. They are built to test exactly one strategy, and allow for the optimization of a very limited number of parameters. The goals of this project is to develope an Expert Advisor which allows a user to customize a wide variety of parameters and settings for quick and easy backtesting, optimization, and live trading of a range of strategies. It is a collaboration between myself and an Uncle working in the Forex business who lacks a programming background. I work with him on defining exactly what he will need in the program, and design it to his specifications. 
 
 
-User Guide
-----------
+Metatrade 4 setup
+-----------------
 
 Metatrader is a forex trading platform that can trade using coded algorithms called expert advisors. This software is designed to be run within Metatrader 4, and is coded in MQL4, a C++ based language developed by MetaQuotes oriented towards trading programs. The language documentation can be found here: http://book.mql4.com/ 
 
@@ -25,16 +25,15 @@ Investopedia has a good tutorial for familiarizing yourself with the Metatrader 
 
 
 
-
-
+Program Description and Instructions
+-------------------------------------
 
 The core strategy that this program is based off of is simple:
 For a set of technical indicators, if all indicators are going up, buy. If all indicators are going down, sell.
 
+Currently, In the latest version there are seven technical indicators that can be used invidivually or in combination with each other in this program. They are *Moving Average, Stochastic Oscillator, Stoch RSI Basic, THV3 T3, Babon Slope, THV T3 Trix, and AMA optimized*. Moving Avergae and Stochastic Oscillator are default indicators included in MT$, but the rest have to be downloaded and added manually.
 
 
- 
 
 
-All coding has been done in MQL4, a C++ based language targeted towards trading
-programs.
+
