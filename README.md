@@ -31,7 +31,7 @@ Program Description and Instructions
 The core strategy that this program is based off of is simple:
 For a set of technical indicators, if all indicators are going up, buy. If all indicators are going down, sell.
 
-Currently, In the latest version there are seven technical indicators that can be used invidivually or in combination with each other in this program. They are *Moving Average, Stochastic Oscillator, Stoch RSI Basic, THV3 T3, Babon Slope, THV T3 Trix, and AMA optimized*. Moving Avergae and Stochastic Oscillator are default indicators included in MT$, but the rest have to be downloaded and added manually.
+Currently, In the latest version there are seven technical indicators that can be used invidivually or in combination with each other in this program. They are *Moving Average, Stochastic Oscillator, Stoch RSI Basic, THV3 T3, Babon Slope, THV T3 Trix, and AMA optimized*. Moving Average and Stochastic Oscillator are default indicators included in MT4, but the rest have to be downloaded and added manually.
 
 
 
