@@ -39,8 +39,20 @@ When you load the EA onto a graph, the settings menu for the EA will look like t
 
 The EA decides the direction of an indicator by  looking at the last time that the indicator showed a positive or negative direction. If indicator is currently  completely flat, the EA will look back at previous data until it finds a directoin. The two possible directions are up or down. If all indicators are UP, then close all short positions and open a long position. If all indicators are DOWN, then close all long positions and open a short position.The EA will only ever have one open order, and will close it before opening the next order.
 
+The only settings here under each indicator that aren't standard settings for that indicator ar those called *% above direction doesn't change* and *% below direction doesn't change*. These can be found under *Stochastic Oscillator* and *Stoch RSI Basic*. All these mean are that the EA won't register a direction change in these indicators if the indicator is below the *% below direction doesn't change* value, or above the *% above direction doesn't change*. If you do not wish to use this functionality, set *% above direction doesn't change* to 100.0 and *% below direction doesn't change* to 0.0. 
+
 The rest of the inputs can be found by scrolling down: 
 ![Bottom half of settings page](https://github.com/Pastromhaug/Expert-Advisor/blob/master/Untitled%20picture.png)
+
+Here is a description of the rest of the variables:
+
+**Entering method:** The value can be either *Directly* or *Wait for pullback*. If *Directly* is chosen, the EA wiil open orders immediately at the close of the last bar after the indicators change direction. In this case, you can ignore the four indented variables below. In this case, the four indented variables below can be ignored. If *Wait for pullback* is chosen, the EA will not open order, even if the buy signal changes, until a suitable pullback is detected. The pullback requirements are determined by the four indented settings below. This option is still under development and should NOT be used.
+
+**Take profit type** This value cam be either *Constant* or *% ADR* or *None*. If you do not wish to use a take profit, select None, and ignore the three indented parameters below it. IF you wish to use a set number of pips above or below the price of the opened order as the take profit, select *Constant*. You must then set the indented **Constant** variable below to your desired number of pips. **% ADR** and **ADR: number of days** can be ignored in this case. If you wish to set your take profit to a number of pips equal to a desired % of ADR, select *% ADR*. The indented **% ADR** variable must then be set to the % of the ADR that you would like to use, and the **ADR: number of days** variable must be set to the number of days you wish the % ADR for the take profit to be calculated over.
+
+**Stop loss type** This value cam be either *Constant* or *% ADR* or *None*. If you do not wish to use a stoploss, select None, and ignore the three indented parameters below it. IF you wish to use a set number of pips above or below the price of the opened order as the stoploss, select *Constant*. You must then set the indented **Constant** variable below to your desired number of pips. **% ADR** and **ADR: number of days** can be ignored in this case. If you wish to set your stoploss to a number of pips equal to a desired % of ADR, select *% ADR*. The indented **% ADR** variable must then be set to the % of the ADR that you would like to use, and the **ADR: number of days** variable must be set to the number of days you wish the % ADR for the stoploss to be calculated over.
+
+**if SL triggered, wait for direction change:** This variable is boolean, and can be set to *true* or *false*
 
 
 
