@@ -39,6 +39,10 @@ When you load the EA onto a graph, the settings menu for the EA will look like t
 
 The EA decides the direction of an indicator by  looking at the last time that the indicator showed a positive or negative direction. If indicator is currently  completely flat, the EA will look back at previous data until it finds a directoin. The two possible directions are up or down. If all indicators are UP, then close all short positions and open a long position. If all indicators are DOWN, then close all long positions and open a short position.The EA will only ever have one open order, and will close it before opening the next order.
 
+The rest of the inputs can be found by scrolling down: 
+![Bottom half of settings page](https://github.com/Pastromhaug/Expert-Advisor/blob/master/Untitled%20picture.png)
+
+
 
 
 
