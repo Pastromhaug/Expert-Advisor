@@ -33,6 +33,7 @@ For a set of technical indicators, if all indicators are going up, buy. If all i
 
 Currently, In the latest version there are seven technical indicators that can be used invidivually or in combination with each other in this program. They are *Moving Average, Stochastic Oscillator, Stoch RSI Basic, THV3 T3, Babon Slope, THV T3 Trix, and AMA optimized*. Moving Average and Stochastic Oscillator are default indicators included in MT4, but the rest have to be downloaded and added manually.
 
+![Top half of settings page](https://github.com/Pastromhaug/Expert-Advisor/blob/master/menu_top_half.png)
 
 
 
