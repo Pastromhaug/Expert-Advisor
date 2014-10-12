@@ -35,7 +35,7 @@ Currently, In the latest version there are seven technical indicators that can b
 
 When you load the EA onto a graph, the settings menu for the EA will look like this. The picture below shows all the indicators in the *Inputs* menu. Setting an indicator to *true* will enable that indicator when the EA is executed. The settings below each indicators shifted a few spaces to the right and that begin with a *>* character are the parameters that can be changed for each indicator. These just change how each indicator behaves.
 
-![Top half of settings page](https://github.com/Pastromhaug/Expert-Advisor/blob/master/menu_top_half.png)
+![Top half of settings page](https://github.com/Pastromhaug/Expert-Advisor/blob/master/Untitled%20picture2.png)
 
 The EA decides the direction of an indicator by  looking at the last time that the indicator showed a positive or negative direction. If indicator is currently  completely flat, the EA will look back at previous data until it finds a directoin. The two possible directions are up or down. If all indicators are UP, then close all short positions and open a long position. If all indicators are DOWN, then close all long positions and open a short position.The EA will only ever have one open order, and will close it before opening the next order.
 
