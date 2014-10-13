@@ -44,7 +44,7 @@ The EA decides the direction of an indicator by looking at the last time that th
 The only settings here under each indicator that aren't standard settings for that indicator are those called *% above direction doesn't change* and *% below direction doesn't change*. These can be found under *Stochastic Oscillator* and *Stoch RSI Basic*. All these mean are that the EA won't register a direction change in these indicators if the indicator is below the *% below direction doesn't change* value, or above the *% above direction doesn't change*. If you do not wish to use this functionality, set *% above direction doesn't change* to 100.0 and *% below direction doesn't change* to 0.0. 
 
 The rest of the inputs can be found by scrolling down: 
-![Bottom half of settings page]://github.com/Pastromhaug/Expert-Advisor/blob/master/Untitled%20picture.png)
+![Bottom half of settings page](https://github.com/Pastromhaug/Expert-Advisor/blob/master/Untitled%20picture.png)
 
 
 Here is a description of the rest of the variables:
