@@ -46,13 +46,53 @@ The rest of the inputs can be found by scrolling down:
 
 Here is a description of the rest of the variables:
 
-**Entering method:** The value can be either *Directly* or *Wait for pullback*. If *Directly* is chosen, the EA wiil open orders immediately at the close of the last bar after the indicators change direction. In this case, you can ignore the four indented variables below. In this case, the four indented variables below can be ignored. If *Wait for pullback* is chosen, the EA will not open order, even if the buy signal changes, until a suitable pullback is detected. The pullback requirements are determined by the four indented settings below. This option is still under development and should NOT be used.
+**Entering method:** The value can be either *Directly* or *Wait for pullback*. If *Directly* is chosen, the EA wiil open orders immediately at the close of the last bar after the indicators change direction. In this case, you can ignore the four indented variables below. In this case, the four indented variables below can be ignored. If *Wait for pullback* is chosen, the EA will not open order, even if the buy signal changes, until a suitable pullback is detected. The pullback requirements are determined by the four indented settings below. The *Wait for pullback* option is still under development and should NOT be used.
 
 **Take profit type** This value cam be either *Constant* or *% ADR* or *None*. If you do not wish to use a take profit, select None, and ignore the three indented parameters below it. IF you wish to use a set number of pips above or below the price of the opened order as the take profit, select *Constant*. You must then set the indented **Constant** variable below to your desired number of pips. **% ADR** and **ADR: number of days** can be ignored in this case. If you wish to set your take profit to a number of pips equal to a desired % of ADR, select *% ADR*. The indented **% ADR** variable must then be set to the % of the ADR that you would like to use, and the **ADR: number of days** variable must be set to the number of days you wish the % ADR for the take profit to be calculated over.
 
 **Stop loss type** This value cam be either *Constant* or *% ADR* or *None*. If you do not wish to use a stoploss, select None, and ignore the three indented parameters below it. IF you wish to use a set number of pips above or below the price of the opened order as the stoploss, select *Constant*. You must then set the indented **Constant** variable below to your desired number of pips. **% ADR** and **ADR: number of days** can be ignored in this case. If you wish to set your stoploss to a number of pips equal to a desired % of ADR, select *% ADR*. The indented **% ADR** variable must then be set to the % of the ADR that you would like to use, and the **ADR: number of days** variable must be set to the number of days you wish the % ADR for the stoploss to be calculated over.
 
-**if SL triggered, wait for direction change:** This variable is boolean, and can be set to *true* or *false*
+**if SL triggered, wait for direction change:** This variable can be set to *true* or *false*. If it is set to true, Then if an order is closed on a stop loss, the program waits for all the indicators to switch directions before opening another order. 
+
+
+**if TP triggered, wait for direction change:** This variable can be set to *true* or *false*. If it is set to true, Then if an order is closed on a take profit, the program waits for all the indicators to switch directions before opening another order. 
+
+**Max spread to trade (pips):** If the current spread is greater than  this value, no orders are opened by the program.
+
+**SL profit level type:** Can be set to *None*, *Constant*, or *% ADR*. If set to *Constant*, if the price moves favorably while an open position is held (up if it is an long position, down if it is a short position), and it moves past the price that the order was opened at +/- the value under the indented **Constant** variable (depending on the position), the program resets the stoploss to a price determined by the **BE/SL level type** below. If it is set to *% ADR*, this variable has the same funcion, but instead of using a constant to determine the price level at which, if the price crosses, a new stop loss is set, uses a % ADR determined by the indented **% ADR** variable and the **ADR: number of days** settings. If *Constant* is selected, then the indented **% ADR** and **ADR: number of days** variables will be ignored, and if *% ADR* is selected, the indented variable **Constant** will be ignored.
+
+**BE/SL level type:** If **SL profit level type** is not set to *None* and the price crosses the line determined by the **SL profit level type** block while an open position is held, the program will change the stoploss of the open order to a price dependent on the setting of this variable. The change in stop loss is made relative to the price crossed that was set by the **SL profit level type** variable.
+
+**Day not to trade:** There are six of these. Each can be set to any day of the week or *None*. The program will not open any orders on the days specified by these variables.
+
+**Trade around the clock?** This variable determins if the program can open orders at all times of the day if *true*, or whether it can only open orders during the times specified by the **Hour to start trading**, **Minute to start trading**, **Hour to stop trading**, and **Minute to stop trading** variables below if set to *false*.
+
+**Hour to start trading, Minute to start trading, Hour to stop trading, Minute to stop trading:** Determine the times during the day that the EA can open positions. The time *xx:xx* set by the first two variables must be earlier in the day than the time set by the last two.
+
+**Day to close all trades, Hour to close all trades, Minute to close all trades:** These variables decide a day, hour, and minute that the program closes all open orders. If *Day to close all trades** is set to *None* then the other two are ignored and the program does not have a weekly time where all positions are closed.
+
+**Start trading immediately/Wait for direction change:** If *Wait for direction change* is selected, then every day when trading begins, the program waits for the indicators to switch directions before opening any trades. If *Start trading immediately* is selected, then this does not happen. This varible is ignored if **Trade around the clock?** is set to *true*.
+
+**lot_size_const:** Determines the number of lots to be committed in every open position.
+
+**max slippage (pips):** If the price changes by this many pips between the time the the EA sends out an order to open a position, and the trading terminal is actually ready to execute the order, terminate the order.
+
+
+Future Work
+-----------
+
+-  Every aspect of this program must be more thoroughly tested before it should be used for trading, optimization, and testing purposes.
+
+-  Complete implimentation of the *Wait for pullback* option under the **Entering method** variable. This is an essential feature for making any strategy profitble. The program must be able to accurately detect a good pullback in order to open trades with better timing.
+
+-  Impliment a feature where instead of only waiting for all indicatos to change directions if the **If SL triggered, wait for direction change, If TP triggered, wait for direction change,** or **start trading immediately/Wait for direction change** are set to wait for a direction change, allow the user to choose specific indicators that will be watched for a direction change before opening positions is allowed.
+
+-  Extensive code optimization. This EA is designed to be tested on years of historical data hundreds or thousands of times simultaneously when optimizing a wide variety of parameters. It is important that the code runs quickly so that this process doesn't take forever.
+
+-  More robust error handling. For optimization and trading on demo account, fairly simple error handling will suffice. However, if real money is to be put on the line using this program, much more work will have to be done on making an extensive and thorough error handling system.
+
+-  More indicators will likely be added in order to make the program more flexible. 
+
 
 
 
